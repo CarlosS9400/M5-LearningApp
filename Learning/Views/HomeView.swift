@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var model: ContentModel
+    @EnvironmentObject var model: ModuleViewModel
     
     var body: some View {
         VStack {
@@ -25,6 +25,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(ContentModel())
+            .environmentObject(ModuleViewModel())
     }
 }
