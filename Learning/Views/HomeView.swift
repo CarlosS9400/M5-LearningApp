@@ -11,16 +11,47 @@ struct HomeView: View {
     
     @EnvironmentObject var model: ModuleViewModel
     
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack(alignment: .leading){
+                Text("What would you like to do today?")
+                    .padding(.leading)
+                ScrollView{
+                    LazyVStack{
+                        ForEach(model.modules) { module in
+                            
+                            VStack(spacing: 20){
+                                
+                                NavigationLink {
+                                    ContentView()
+                                        .onAppear{
+                                            model.setCurrentModule(module.id)
+                                        }
+                                    
+                                } label: {
+                                    //Lessons
+                                    HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) lessons", time: module.content.time).multilineTextAlignment(.leading)
+                                    
+                                }
+                                
+                                
+
+                                //Test
+                                HomeViewRow(image: module.test.image, title: "\(module.category) Test", description: module.test.description, count: "\(module.test.questions.count) questions", time: module.test.time)
+                                
+                                
+                                
+                            }
+                        }
+                    }.foregroundColor(.black)
+                }
+            }.navigationTitle("Get Started")
         }
-        .padding()
     }
 }
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

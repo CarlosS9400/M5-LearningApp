@@ -8,14 +8,20 @@
 import Foundation
 
 class ModuleViewModel: ObservableObject {
-    
+    //all the modules available
     @Published var modules = [Module]()
+    //the current module being used
+    @Published var currentModule: Module?
+    
+    //the index for the current module
+    var currentModuleIndex: Int = 0
+    
     var styleData: Data?
     
     init() {
         getLocalData()
     }
-    
+    // MARK: Data getting method
     func getLocalData() {
         
         let jsonUrl = Bundle.main.url(forResource: "data", withExtension: "json")
@@ -53,6 +59,18 @@ class ModuleViewModel: ObservableObject {
             print("Cannot parse stylesheet")
         
         }
+    }
+    
+    // MARK: Setting current module method
+    func setCurrentModule(_ moduleid: Int) {
+        for index in 0..<modules.count {
+            if modules[index].id == moduleid {
+                currentModuleIndex = index
+                break
+            }
+        }
+        
+        currentModule = modules[currentModuleIndex]
     }
     
     
