@@ -48,7 +48,7 @@ struct HomeView: View {
                     }.foregroundColor(.black)
                 }
             }.navigationTitle("Get Started")
-        }
+        }.navigationViewStyle(.stack)
     }
 }
 

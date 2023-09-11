@@ -8,13 +8,17 @@
 import Foundation
 
 class ModuleViewModel: ObservableObject {
-    //all the modules available
+    // MARK: all the modules available
     @Published var modules = [Module]()
-    //the current module being used
+    // MARK: the current module being used
     @Published var currentModule: Module?
+    // MARK: the current lesson being used
+    @Published var currentLesson: Lesson?
     
-    //the index for the current module
+    // MARK: the index for the current module
     var currentModuleIndex: Int = 0
+    // MARK: the index for the current lesson
+    var currentLessonIndex: Int = 0
     
     var styleData: Data?
     
@@ -73,5 +77,27 @@ class ModuleViewModel: ObservableObject {
         currentModule = modules[currentModuleIndex]
     }
     
+    func setCurrentLesson(_ lessonIndex: Int) {
+        if lessonIndex < currentModule!.content.lessons.count {
+            currentLessonIndex = lessonIndex
+        } else {
+            currentLessonIndex = 0
+        }
+        
+        currentLesson = currentModule!.content.lessons[currentLessonIndex]
+    }
     
+    func hasNextLesson() -> Bool {
+        return (currentLessonIndex + 1 < currentModule!.content.lessons.count)
+    }
+    
+    func nextLesson() {
+        currentLessonIndex += 1
+        if currentLessonIndex < currentModule!.content.lessons.count {
+            currentLesson = currentModule!.content.lessons[currentLessonIndex]
+        } else {
+            currentLessonIndex = 0
+            currentLesson = nil
+        }
+    }
 }
