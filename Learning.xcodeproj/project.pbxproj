@@ -21,6 +21,7 @@
 		C802E8B22AAD801500A5BEB5 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C802E8B12AAD801500A5BEB5 /* AVKit.framework */; };
 		C802E8B42AAE818900A5BEB5 /* ContentDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C802E8B32AAE818900A5BEB5 /* ContentDetailedView.swift */; };
 		C802E8B62AAE859F00A5BEB5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C802E8B52AAE859F00A5BEB5 /* Constants.swift */; };
+		C8FA0D8D2AB007D900CC5AE4 /* CodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FA0D8C2AB007D900CC5AE4 /* CodeTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		C802E8B12AAD801500A5BEB5 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		C802E8B32AAE818900A5BEB5 /* ContentDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailedView.swift; sourceTree = "<group>"; };
 		C802E8B52AAE859F00A5BEB5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C8FA0D8C2AB007D900CC5AE4 /* CodeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				C802E8A42AAC6FB000A5BEB5 /* ContentView.swift */,
 				C802E8B32AAE818900A5BEB5 /* ContentDetailedView.swift */,
 				C802E8A62AAC891600A5BEB5 /* ContentViewRow.swift */,
+				C8FA0D8C2AB007D900CC5AE4 /* CodeTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				C802E89A2AA93F8200A5BEB5 /* Module.swift in Sources */,
 				C802E8A72AAC891600A5BEB5 /* ContentViewRow.swift in Sources */,
 				C802E8812AA7E84600A5BEB5 /* LearningApp.swift in Sources */,
+				C8FA0D8D2AB007D900CC5AE4 /* CodeTextView.swift in Sources */,
 				C802E8B42AAE818900A5BEB5 /* ContentDetailedView.swift in Sources */,
 				C802E89C2AA9432700A5BEB5 /* ModuleViewModel.swift in Sources */,
 				C802E8B62AAE859F00A5BEB5 /* Constants.swift in Sources */,

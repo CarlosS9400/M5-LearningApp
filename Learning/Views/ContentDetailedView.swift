@@ -25,6 +25,8 @@ struct ContentDetailedView: View {
             }
             
             // MARK: Explanation in text
+            CodeTextView()
+                
             
             // MARK: Button to next lesson
             
@@ -48,7 +50,7 @@ struct ContentDetailedView: View {
                 }
             }
 
-        }.padding()
+        }.padding().navigationTitle(model.currentLesson?.title ?? "")
             
         
     }
