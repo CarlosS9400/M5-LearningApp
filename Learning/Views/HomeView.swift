@@ -24,17 +24,20 @@ struct HomeView: View {
                             
                             VStack(spacing: 20){
                                 
-                                NavigationLink {
-                                    ContentView()
-                                        .onAppear{
+                                NavigationLink(
+                                    destination: ContentView()
+                                        .onAppear(perform: {
                                             model.setCurrentModule(module.id)
-                                        }
-                                    
-                                } label: {
+                                            print(model.selectedIndex)
+                                        }),
+                                    tag: module.id,
+                                    selection: $model.selectedIndex,
+                                
+                                label: {
                                     //Lessons
                                     HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) lessons", time: module.content.time).multilineTextAlignment(.leading)
                                     
-                                }
+                                })
                                 
                                 
 

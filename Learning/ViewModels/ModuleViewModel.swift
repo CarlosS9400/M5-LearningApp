@@ -24,6 +24,8 @@ class ModuleViewModel: ObservableObject {
     
     @Published var lessonDescription = NSAttributedString()
     
+    @Published var selectedIndex: Int?
+    
     init() {
         getLocalData()
     }

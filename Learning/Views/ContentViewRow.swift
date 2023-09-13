@@ -26,12 +26,12 @@ struct ContentViewRow: View {
                     Text(String(index+1))
                         .padding(.horizontal)
                         .font(.largeTitle)
-                        .bold()
+                        
                     
                     VStack(alignment: .leading){
                         Text(lesson!.title)
                             .font(.title2)
-                            .bold()
+                            
                            
                         Text(lesson!.duration)
                             .font(.headline)
