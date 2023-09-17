@@ -47,7 +47,7 @@ struct ContentDetailedView: View {
                 }
             } else {
                 Button {
-                    model.selectedIndex = nil
+                    model.currentContentSelected = nil
                 } label: {
                     
                     ZStack{

@@ -14,17 +14,23 @@ class ModuleViewModel: ObservableObject {
     @Published var currentModule: Module?
     // MARK: the current lesson being used
     @Published var currentLesson: Lesson?
+    // MARK: the current lesson being used
+    @Published var currentQuestion: Question?
     
     // MARK: the index for the current module
     var currentModuleIndex: Int = 0
     // MARK: the index for the current lesson
     var currentLessonIndex: Int = 0
+    // MARK: the index for the current test
+    var currentQuestionIndex: Int = 0
+   
     
     var styleData: Data?
     
-    @Published var lessonDescription = NSAttributedString()
+    @Published var codeText = NSAttributedString()
     
-    @Published var selectedIndex: Int?
+    @Published var currentContentSelected: Int?
+    @Published var currentTestSelected: Int?
     
     init() {
         getLocalData()
@@ -89,7 +95,7 @@ class ModuleViewModel: ObservableObject {
         }
         
         currentLesson = currentModule!.content.lessons[currentLessonIndex]
-        lessonDescription = addStyling(currentLesson!.explanation)
+        codeText = addStyling(currentLesson!.explanation)
     }
     
     func hasNextLesson() -> Bool {
@@ -100,10 +106,20 @@ class ModuleViewModel: ObservableObject {
         currentLessonIndex += 1
         if currentLessonIndex < currentModule!.content.lessons.count {
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
-            lessonDescription = addStyling(currentLesson!.explanation)
+            codeText = addStyling(currentLesson!.explanation)
         } else {
             currentLessonIndex = 0
             currentLesson = nil
+        }
+    }
+    
+    func setCurrentQuestion(_ moduleid: Int) {
+        setCurrentModule(moduleid)
+        currentQuestionIndex = 0
+        
+        if currentModule?.test.questions.count ?? 0 > 0 {
+            currentQuestion = currentModule!.test.questions[currentQuestionIndex]
+            codeText = addStyling(currentQuestion!.content)
         }
     }
     

@@ -28,21 +28,25 @@ struct HomeView: View {
                                     destination: ContentView()
                                         .onAppear(perform: {
                                             model.setCurrentModule(module.id)
-                                            print(model.selectedIndex)
+                                            
                                         }),
                                     tag: module.id,
-                                    selection: $model.selectedIndex,
-                                
-                                label: {
+                                    selection: $model.currentContentSelected){
                                     //Lessons
                                     HomeViewRow(image: module.content.image, title: "Learn \(module.category)", description: module.content.description, count: "\(module.content.lessons.count) lessons", time: module.content.time).multilineTextAlignment(.leading)
                                     
-                                })
+                                }
                                 
-                                
-
-                                //Test
-                                HomeViewRow(image: module.test.image, title: "\(module.category) Test", description: module.test.description, count: "\(module.test.questions.count) questions", time: module.test.time)
+                                NavigationLink(
+                                    destination:TestView().onAppear(){
+                                        model.setCurrentQuestion(module.id)
+                                    },
+                                    tag: module.id,
+                                    selection: $model.currentTestSelected){
+                                    
+                                    //Test
+                                    HomeViewRow(image: module.test.image, title: "\(module.category) Test", description: module.test.description, count: "\(module.test.questions.count) questions", time: module.test.time)
+                                }
                                 
                                 
                                 
